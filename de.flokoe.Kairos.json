@@ -1,9 +1,9 @@
 {
-    "id" : "org.example.Turtur",
+    "id" : "de.flokoe.Kairos",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "47",
     "sdk" : "org.gnome.Sdk",
-    "command" : "turtur",
+    "command" : "kairos",
     "finish-args" : [
         "--share=network",
         "--share=ipc",
@@ -38,7 +38,7 @@
             ]
         },
         {
-            "name" : "turtur",
+            "name" : "kairos",
             "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [

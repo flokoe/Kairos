@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-        input: 'org.example.Turtur.desktop.in',
-       output: 'org.example.Turtur.desktop',
+        input: 'de.flokoe.Kairos.desktop.in',
+       output: 'de.flokoe.Kairos.desktop',
          type: 'desktop',
        po_dir: '../po',
       install: true,
@@ -13,8 +13,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-        input: 'org.example.Turtur.metainfo.xml.in',
-       output: 'org.example.Turtur.metainfo.xml',
+        input: 'de.flokoe.Kairos.metainfo.xml.in',
+       output: 'de.flokoe.Kairos.metainfo.xml',
        po_dir: '../po',
       install: true,
   install_dir: get_option('datadir') / 'metainfo'
@@ -24,7 +24,7 @@ appstreamcli = find_program('appstreamcli', required: false, disabler: true)
 test('Validate appstream file', appstreamcli,
      args: ['validate', '--no-net', '--explain', appstream_file])
 
-install_data('org.example.Turtur.gschema.xml',
+install_data('de.flokoe.Kairos.gschema.xml',
   install_dir: get_option('datadir') / 'glib-2.0' / 'schemas'
 )
 
@@ -37,8 +37,8 @@ test('Validate schema file',
 service_conf = configuration_data()
 service_conf.set('bindir', get_option('prefix') / get_option('bindir'))
 configure_file(
-  input: 'org.example.Turtur.service.in',
-  output: 'org.example.Turtur.service',
+  input: 'de.flokoe.Kairos.service.in',
+  output: 'de.flokoe.Kairos.service',
   configuration: service_conf,
   install_dir: get_option('datadir') / 'dbus-1' / 'services'
 )

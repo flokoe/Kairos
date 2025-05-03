@@ -1,5 +1,5 @@
 pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
-moduledir = pkgdatadir / 'turtur'
+moduledir = pkgdatadir / 'kairos'
 gnome = import('gnome')
 
 blueprints = custom_target('blueprints',
@@ -11,8 +11,8 @@ blueprints = custom_target('blueprints',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
 )
 
-gnome.compile_resources('turtur',
-  'turtur.gresource.xml',
+gnome.compile_resources('kairos',
+  'kairos.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
@@ -28,18 +28,18 @@ conf.set('localedir', get_option('prefix') / get_option('localedir'))
 conf.set('pkgdatadir', pkgdatadir)
 
 configure_file(
-  input: 'turtur.in',
-  output: 'turtur',
+  input: 'kairos.in',
+  output: 'kairos',
   configuration: conf,
   install: true,
   install_dir: get_option('bindir'),
   install_mode: 'r-xr-xr-x'
 )
 
-turtur_sources = [
+kairos_sources = [
   '__init__.py',
   'main.py',
   'window.py',
 ]
 
-install_data(turtur_sources, install_dir: moduledir)
+install_data(kairos_sources, install_dir: moduledir)

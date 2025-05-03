@@ -1,1 +1,1 @@
-i18n.gettext('turtur', preset: 'glib')
+i18n.gettext('kairos', preset: 'glib')

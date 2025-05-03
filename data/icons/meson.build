@@ -1,4 +1,4 @@
-application_id = 'org.example.Turtur'
+application_id = 'de.flokoe.Kairos'
 
 scalable_dir = 'hicolor' / 'scalable' / 'apps'
 install_data(

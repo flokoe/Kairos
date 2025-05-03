@@ -1,6 +1,6 @@
 # main.py
 #
-# Copyright 2025 AuthorName
+# Copyright 2025 Florian Köhler
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,17 +27,17 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gio, Gtk  # noqa: E402
-from .window import TurturWindow  # noqa: E402
+from .window import KairosWindow  # noqa: E402
 
 
-class TurturApplication(Adw.Application):
+class KairosApplication(Adw.Application):
     """The main application singleton class."""
 
     def __init__(self) -> None:
         super().__init__(
-            application_id="org.example.Turtur",
+            application_id="de.flokoe.Kairos",
             flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
-            resource_base_path="/org/example/Turtur",
+            resource_base_path="/de/flokoe/Kairos",
         )
         self.create_action("quit", lambda *_: self.quit(), ["<primary>q"])
         self.create_action("about", self.on_about_action)
@@ -51,18 +51,18 @@ class TurturApplication(Adw.Application):
         """
         win = self.props.active_window
         if not win:
-            win = TurturWindow(application=self)
+            win = KairosWindow(application=self)
         win.present()
 
     def on_about_action(self, *args: Any) -> None:
         """Callback for the app.about action."""
         about = Adw.AboutDialog(
-            application_name="turtur",
-            application_icon="org.example.Turtur",
-            developer_name="AuthorName",
+            application_name="kairos",
+            application_icon="de.flokoe.Kairos",
+            developer_name="Florian Köhler",
             version="0.1.0",
-            developers=["AuthorName"],
-            copyright="© 2025 AuthorName",
+            developers=["Florian Köhler"],
+            copyright="© 2025 Florian Köhler",
         )
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
         about.set_translator_credits(_("translator-credits"))
@@ -95,5 +95,5 @@ class TurturApplication(Adw.Application):
 
 def main(version: str) -> int:
     """The application's entry point."""
-    app = TurturApplication()
+    app = KairosApplication()
     return app.run(sys.argv)

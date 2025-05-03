@@ -1,6 +1,6 @@
 # window.py
 #
-# Copyright 2025 AuthorName
+# Copyright 2025 Florian Köhler
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,9 +22,9 @@ from typing import Any
 from gi.repository import Adw, Gtk
 
 
-@Gtk.Template(resource_path="/org/example/Turtur/window.ui")
-class TurturWindow(Adw.ApplicationWindow):
-    __gtype_name__ = "TurturWindow"
+@Gtk.Template(resource_path="/de/flokoe/Kairos/window.ui")
+class KairosWindow(Adw.ApplicationWindow):
+    __gtype_name__ = "KairosWindow"
 
     label: Gtk.Label = Gtk.Template.Child()
 

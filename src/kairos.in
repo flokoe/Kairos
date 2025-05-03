@@ -1,8 +1,8 @@
 #!@PYTHON@
 
-# turtur.in
+# kairos.in
 #
-# Copyright 2025 AuthorName
+# Copyright 2025 Florian Köhler
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,16 +31,16 @@ localedir: str = "@localedir@"
 
 sys.path.insert(1, pkgdatadir)
 signal.signal(signal.SIGINT, signal.SIG_DFL)
-locale.bindtextdomain("turtur", localedir)
-locale.textdomain("turtur")
-gettext.install("turtur", localedir)
+locale.bindtextdomain("kairos", localedir)
+locale.textdomain("kairos")
+gettext.install("kairos", localedir)
 
 if __name__ == "__main__":
     from gi.repository import Gio
 
-    resource = Gio.Resource.load(os.path.join(pkgdatadir, "turtur.gresource"))
+    resource = Gio.Resource.load(os.path.join(pkgdatadir, "kairos.gresource"))
     resource._register()  # type: ignore
 
-    from turtur import main
+    from kairos import main
 
     sys.exit(main.main(VERSION))
